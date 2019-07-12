@@ -13,6 +13,8 @@ public class Conectar {
     public static final String SERVIDOR="jdbc:mysql://localhost:3306/DatosCFP?useSSL=false";
     public static final String USUARIO = "root";
     public static final String PASS = "root";
+    
+    
       
       
     public static Connection conexion(){ 
