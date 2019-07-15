@@ -1,4 +1,4 @@
-package clases;
+package Clases;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
