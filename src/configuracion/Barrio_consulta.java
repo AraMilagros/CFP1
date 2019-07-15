@@ -1,28 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package configuracion;
 
-//import menu.*;
-
+import Clases.Lugarconfiguracion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import menu.Principal;
-import static menu.Principal.panelPrincipal;
-
-
-
 /**
  *
  * @author RociojulietaVazquez
  */
 public class Barrio_consulta extends javax.swing.JInternalFrame {
 
+    public Connection con = Clases.Conectar.conexion();
+    public String nombreId;
     /**
      * Creates new form barrio
      */
     public Barrio_consulta() {
         initComponents();
+        //LlenarcomboLocalidad(con, cbLocalidad);
+        
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM lugar WHERE nivel=3 ORDER BY nombre ASC");
+                while(rs.next()){
+                    cbLocalidad.addItem(rs.getString("nombre")); 
+                }
+                rs.close();
+                con.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL MOSTRAR Las localidades");
+        }
+        
     }
 
     /**
@@ -97,11 +111,6 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnAgregarBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
 
-        listaBarrios.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(listaBarrios);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 192, 370, -1));
@@ -110,7 +119,16 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         jLabel2.setText("Localidad");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 91, -1, -1));
 
-        cbLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbLocalidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbLocalidadMouseClicked(evt);
+            }
+        });
+        cbLocalidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLocalidadActionPerformed(evt);
+            }
+        });
         jPanel1.add(cbLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 119, 112, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -162,10 +180,49 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
     private void btnEliminarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarBarrioActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        
-        
     }//GEN-LAST:event_btnEliminarBarrioActionPerformed
 
+    private void cbLocalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLocalidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbLocalidadActionPerformed
+
+    private void cbLocalidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbLocalidadMouseClicked
+        //actualizar lista de barrios
+        nombreId = cbLocalidad.getSelectedItem().toString();
+        llenarlistaBarrio(con, listaBarrios, nombreId);
+    }//GEN-LAST:event_cbLocalidadMouseClicked
+
+    public void vaciarCombo(){
+        
+    }
+    
+    public void LlenarcomboLocalidad(Connection conexion,JComboBox comboLocalidad){//Este metodo para llenar el combo con las localidades 
+        try {
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM lugar WHERE nivel=3 ORDER BY nombre ASC");
+                while(rs.next()){
+                    comboLocalidad.addItem(rs.getString("nombre")); 
+                }
+                rs.close();
+                conexion.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL MOSTRAR Las localidades");
+        }
+    }
+    
+    public void llenarlistaBarrio(Connection conexion,JList lista,String idLugar){//Este metodo es para llenar la lista con los barrios dependiendo de la localidad que selecione el usuario
+        DefaultListModel<String> modelo =new  DefaultListModel<String>();
+        try {
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery( "SELECT nombre FROM lugar WHERE nivel=2 and nombre =" + idLugar);
+                while (rs.next()){
+                  modelo.addElement(rs.getString("nombre"));
+                }
+                lista.setModel(modelo);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR LA LISTA");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarBarrio;

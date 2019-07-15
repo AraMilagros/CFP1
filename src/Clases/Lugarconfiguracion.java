@@ -105,30 +105,7 @@ public class Lugarconfiguracion {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR");
         } 
     }
-    public void LlenarcomboLocalidad(Connection conexion,JComboBox<Lugarconfiguracion> comboLocalidad){//Este metodo para llenar el combo con las localidades 
-        try {
-            Statement st = (Statement) conexion.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM lugar WHERE nivel=3 ORDER BY nombre ASC");
-            Lugarconfiguracion dat= new Lugarconfiguracion();
-            dat.setIdLugar(0);
-            dat.setNombre("Seleccionar Localidad");
-            dat.setNivel(0);
-            dat.setDe(0);
-            comboLocalidad.addItem(dat);
-                while(rs.next()){
-                    dat= new Lugarconfiguracion();
-                    dat.setIdLugar(rs.getInt("idLugar"));
-                    dat.setNombre(rs.getString("nombre"));
-                    dat.setNivel(rs.getInt("nivel"));
-                    dat.setDe(rs.getInt("de"));
-                    comboLocalidad.addItem(dat); 
-                }
-           
-        } catch (SQLException ex) {
-         
-            JOptionPane.showMessageDialog(null, "ERROR AL MOSTRAR Las localidades");
-        }
-    }
+    
     public void LlenarcomboBarrio(Connection conexion,JComboBox<Lugarconfiguracion> comboBarrio){//Este metodo para llenar el combo con los barrios
         try {
             Statement st = (Statement) conexion.createStatement();
@@ -220,27 +197,7 @@ public class Lugarconfiguracion {
             JOptionPane.showMessageDialog(null, "NO SE PUDO BUSCAR LA LOCALIDAD");
         }                 
     }
-    public void LlenartablaBarrio(Connection conexion,JTable tabla){//Este metodo es para llenar la tabla con los barrios
-        String sql="SELECT nombre FROM lugar WHERE nivel=2 ORDER BY nombre ASC";
-        Statement st;
-        DefaultTableModel modelo =new DefaultTableModel();
-        modelo.addColumn("Barrio");
-        tabla.setModel(modelo);
-        String[] datos= new String[1];
-        try{
-        st=(Statement) conexion.createStatement();
-        ResultSet rs=st.executeQuery(sql);
-            while(rs.next()){
-            datos[0]=rs.getString(1);
-             modelo.addRow(datos);
-            }
-             tabla.setModel(modelo);
-         }
-        catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, "ERROR AL CARGAR LOS BARRIOS EN LA TABLA"); 
-        }
-    }
+    
     public Vector<Lugarconfiguracion> mostrarBarrio(Connection conexion,int idLugar) {//Este metodo es para llenar el combo con los barrios dependiendo de la localidad que selecione el usuario
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -266,20 +223,7 @@ public class Lugarconfiguracion {
         }
         return datos;
     }
-    public void   llenarlistaBarrio(Connection conexion,JList lista,int idLugar){//Este metodo es para llenar la lista con los barrios dependiendo de la localidad que selecione el usuario
-        DefaultListModel<String> modelo =new  DefaultListModel<String>();
-        Lugarconfiguracion dat= new Lugarconfiguracion();
-        try {
-            Statement st = (Statement) conexion.createStatement();
-            ResultSet rs = st.executeQuery( "SELECT * FROM lugar WHERE nivel=2 and de =" + idLugar);
-                while (rs.next()){
-                  modelo.addElement(rs.getString("nombre"));
-                }
-                lista.setModel(modelo);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO CARGAR LA LISTA");
-        }
-    } 
+     
     public Vector<Lugarconfiguracion> mostrarCalles(Connection conexion,int idLugar) {//Este metodo es para llenar el combo con las calles dependiendo del barrio que selecione el usuario
         PreparedStatement ps = null;
         ResultSet rs = null;
