@@ -8,6 +8,8 @@ package menu;
 import configuracion.*;
 import usuario.*;
 import java.awt.Dimension;
+
+import clases.CambiaPanel;
 /**
  *
  * @author jesus
@@ -17,6 +19,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+    public static int menuAlumno=0;
     
     String respuesta=null;
     public static Dimension pantalla;
@@ -32,7 +36,7 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.add(log);
         log.setVisible(true);
         
-        
+        menuAlumno=0;
     }
     
     @SuppressWarnings("unchecked")
@@ -59,6 +63,7 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        panelSubMenu = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -248,6 +253,19 @@ public class Principal extends javax.swing.JFrame {
         });
         panelUsuarios.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 30));
 
+        panelSubMenu.setBackground(new java.awt.Color(239, 238, 240));
+
+        javax.swing.GroupLayout panelSubMenuLayout = new javax.swing.GroupLayout(panelSubMenu);
+        panelSubMenu.setLayout(panelSubMenuLayout);
+        panelSubMenuLayout.setHorizontalGroup(
+            panelSubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 334, Short.MAX_VALUE)
+        );
+        panelSubMenuLayout.setVerticalGroup(
+            panelSubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
@@ -256,14 +274,19 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(760, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(panelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(panelUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -566,14 +589,18 @@ public class Principal extends javax.swing.JFrame {
         
     }
     
-    void desactivarPanel(){
+    public static void desactivarPanel(){
         panelMenu.setVisible(false);
         panelUsuarios.setVisible(false);
+        panelSubMenu.setVisible(false);
     }
     
     public static void activarPanel(){
         panelMenu.setVisible(true);
         panelUsuarios.setVisible(true);
+        panelSubMenu.setVisible(true);
+        
+        menuAlumno=0;
     }
     
     public static void crearBarrio(){
@@ -790,38 +817,39 @@ public class Principal extends javax.swing.JFrame {
     private void btnAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlumnosActionPerformed
         // TODO add your handling code here:
         
-        desactivarPanel();
+        /*desactivarPanel();
         
         MenuAlumno menu1=new MenuAlumno();
         panelPrincipal.add(menu1);
-        menu1.setVisible(true);
+        menu1.setVisible(true);*/
         
+        /*AlumnoMenu menu1=new AlumnoMenu();
+        panelSubMenu.add(menu1);
+        menu1.setVisible(true);*/
+        
+        // new CambiaPanel(fondo, new InscOpciones());
+        
+        new CambiaPanel(panelSubMenu, new AlumnoMenu());
     }//GEN-LAST:event_btnAlumnosActionPerformed
 
     private void btnListadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListadosActionPerformed
 
-        desactivarPanel();
-        MenuListado menu3=new MenuListado();
-        panelPrincipal.add(menu3);
-        menu3.setVisible(true);
+        new CambiaPanel(panelSubMenu, new ListadoMenu());
     }//GEN-LAST:event_btnListadosActionPerformed
 
     private void btnLicenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLicenciasActionPerformed
 
-        desactivarPanel();
-        
-        MenuLicencia menu4=new MenuLicencia();
-        panelPrincipal.add(menu4);
-        menu4.setVisible(true);
+        new CambiaPanel(panelSubMenu, new LicenciaMenu());
     }//GEN-LAST:event_btnLicenciasActionPerformed
 
     private void btnCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCursosActionPerformed
         // TODO add your handling code here:
-        desactivarPanel();
-        
+        /*desactivarPanel();
         MenuCursos curso=new MenuCursos();
         panelPrincipal.add(curso);
-        curso.setVisible(true);
+        curso.setVisible(true);*/
+        
+        new CambiaPanel(panelSubMenu, new CursosMenu());
     }//GEN-LAST:event_btnCursosActionPerformed
 
     private void jMenuItem30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem30ActionPerformed
@@ -1023,12 +1051,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        desactivarPanel();
-        
-        MenuUsuario menu7=new MenuUsuario();
-        panelPrincipal.add(menu7);
-        menu7.setVisible(true);
+        new CambiaPanel(panelSubMenu, new UsuarioMenu());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -1042,11 +1065,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
         // TODO add your handling code here:
-        
-        desactivarPanel();
-        MenuEmpleado menu2=new MenuEmpleado();
-        panelPrincipal.add(menu2);
-        menu2.setVisible(true);
+        new CambiaPanel(panelSubMenu, new EmpleadoMenu());
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
     /**
@@ -1144,6 +1163,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel panelMenu;
     public static javax.swing.JPanel panelPrincipal;
+    public static javax.swing.JPanel panelSubMenu;
     public static javax.swing.JPanel panelUsuarios;
     // End of variables declaration//GEN-END:variables
 

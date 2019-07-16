@@ -8,24 +8,29 @@ package usuario;
 import javax.swing.JOptionPane;
 import menu.Principal;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 /**
  *
  * @author araa
  */
 public class Login extends javax.swing.JInternalFrame {
 
+    int contador;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        
         Dimension medida1= this.getSize();
         Dimension medida2= this.getSize();
         //menu.Principal.centrarPantalla(medida1.height, medida2.width, this.getLocation());
         this.setLocation((menu.Principal.pantalla.width - medida1.width)/2,(menu.Principal.pantalla.height - medida2.height)/2);
+    
+        contador=0;
     }
 
-    int contador=0;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +57,11 @@ public class Login extends javax.swing.JInternalFrame {
                 txtUserActionPerformed(evt);
             }
         });
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserKeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -60,6 +70,11 @@ public class Login extends javax.swing.JInternalFrame {
         btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnEntrar.setText("Entrar");
+        btnEntrar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btnEntrarFocusGained(evt);
+            }
+        });
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -75,6 +90,11 @@ public class Login extends javax.swing.JInternalFrame {
         jLabel3.setText("Centro De Formación Profesional");
 
         password.setText("jPasswordField1");
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,19 +164,31 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        confirmacion();
+        //confirmacion();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
-    void confirmacion(){
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
+        // TODO add your handling code here:
         
-        /* IDEA DE OTRO PROYECTO--
-         if(JOptionPane.showConfirmDialog(null, "¿Desea seguir cargando datos de libros?","", + 
-                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-                activarAgregar();
-            }else{
-                dispose();
-            }
-        */
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            password.requestFocus();
+            password.setText("");
+        }
+    }//GEN-LAST:event_txtUserKeyPressed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            btnEntrar.requestFocus();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void btnEntrarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnEntrarFocusGained
+      
+        confirmacion();
+    }//GEN-LAST:event_btnEntrarFocusGained
+
+    void confirmacion(){
         
         if(txtUser.getText().equals("admin") && password.getText().equals("admin")){
             Principal.activarPanel();
@@ -166,11 +198,11 @@ public class Login extends javax.swing.JInternalFrame {
             
         }else{
             contador++;
-            
+            txtUser.requestFocus();
             if(contador<3){
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta.");
-                //txtUser=null;
-                //password=null;
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta." + contador);
+                txtUser.setText("");
+                password.setText("Incorrecto");
             }else{
                 if(contador==3){
                     JOptionPane.showMessageDialog(null, "Oportunidades agotadas. \n El sistema se cerrará.");

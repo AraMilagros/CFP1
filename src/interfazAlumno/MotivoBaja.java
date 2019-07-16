@@ -1,5 +1,6 @@
 package interfazAlumno;
 
+import javax.swing.JOptionPane;
 import menu.Principal;
 
 /*
@@ -145,12 +146,18 @@ public class MotivoBaja extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndardebajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndardebajaActionPerformed
-        // TODO add your handling code here:
-
-        /*  InterfazPagoConsulta ip= new InterfazPagoConsulta();
-        Principal.panelPrincipal.add(ip);
-        ip.setVisible(true);
-        */
+        // TODO add your handling code here
+        this.setVisible(false);
+        if(menu.Principal.menuAlumno==1){
+            Eliminar elim=new Eliminar();
+            Principal.panelPrincipal.add(elim);
+            elim.setVisible(true);
+        }else {
+            if(menu.Principal.menuAlumno==0){
+                JOptionPane.showMessageDialog(null, "No hay un alumno para dar de baja. \nPor favor ingrese desde 'Dar de baja' para seleccionarlo.");
+                Principal.activarPanel();
+            }
+        }
     }//GEN-LAST:event_btndardebajaActionPerformed
 
     private void btnanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanteriorActionPerformed

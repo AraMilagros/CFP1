@@ -18,6 +18,10 @@ public class Eliminar extends javax.swing.JInternalFrame {
      */
     public Eliminar() {
         initComponents();
+        jPanel3.setVisible(false);
+        textArea.setVisible(false);
+        
+     
     }
 
     /**
@@ -42,7 +46,7 @@ public class Eliminar extends javax.swing.JInternalFrame {
         jTable2 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textArea = new javax.swing.JTextArea();
         jTextField6 = new javax.swing.JTextField();
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
@@ -83,6 +87,11 @@ public class Eliminar extends javax.swing.JInternalFrame {
         btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneliminar.setForeground(new java.awt.Color(255, 255, 255));
         btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, 103, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -110,9 +119,9 @@ public class Eliminar extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalles de eliminacion"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 615, 88));
 
@@ -142,9 +151,21 @@ public class Eliminar extends javax.swing.JInternalFrame {
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-        Principal.activarPanel();
-        dispose();
+        
+            Principal.activarPanel();
+            dispose();    
+        
     }//GEN-LAST:event_btncancelarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        menu.Principal.menuAlumno=1;
+        
+        MotivoBaja motivo=new MotivoBaja();
+        Principal.panelPrincipal.add(motivo);
+        motivo.setVisible(true);
+    }//GEN-LAST:event_btneliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -160,8 +181,8 @@ public class Eliminar extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextArea textArea;
     private javax.swing.JTextField txtdni;
     // End of variables declaration//GEN-END:variables
 }

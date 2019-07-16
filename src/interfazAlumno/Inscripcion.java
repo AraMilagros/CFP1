@@ -61,6 +61,13 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         txttelefonofijo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtcorreo = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        comboplanes = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        combotrabajo = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        txthijos1 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         combolocalidad = new javax.swing.JComboBox<>();
@@ -68,19 +75,17 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         txtcodigopostal = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         combobarrio = new javax.swing.JComboBox<>();
-        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         combocalle = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        txthijos = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         combotorre = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         combopiso = new javax.swing.JComboBox<>();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        comboplanes = new javax.swing.JComboBox<>();
-        txthijos = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        combotrabajo = new javax.swing.JComboBox<>();
-        jLabel26 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txthijos2 = new javax.swing.JTextField();
+        btnguardar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtdni = new javax.swing.JTextField();
@@ -96,7 +101,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("FOTO");
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 161, 161));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 161, 161));
 
         btncancelar.setBackground(new java.awt.Color(38, 86, 186));
         btncancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -107,19 +112,24 @@ public class Inscripcion extends javax.swing.JInternalFrame {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 89, -1));
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, 130, -1));
 
         btnguardar.setBackground(new java.awt.Color(38, 86, 186));
         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnguardar.setText("Guardar");
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, 89, -1));
+        btnguardar.setText("Realizar Pago");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, 130, -1));
 
         btntomarfoto.setBackground(new java.awt.Color(38, 86, 186));
         btntomarfoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btntomarfoto.setForeground(new java.awt.Color(255, 255, 255));
         btntomarfoto.setText("Tomar foto");
-        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 203, -1, -1));
+        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -191,7 +201,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jLabel8.setText("CUIL");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 104, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 170));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 180));
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
         panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "contactos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -215,59 +225,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         txtcorreo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         panel.add(txtcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 158, 98, -1));
 
-        jPanel1.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 171, 150, 200));
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Domicilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setText("Localidad");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 29, -1, -1));
-
-        combolocalidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        combolocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        jPanel6.add(combolocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 52, -1, -1));
-
-        jLabel16.setText("Código postal");
-        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 111, -1, -1));
-
-        txtcodigopostal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel6.add(txtcodigopostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 134, 95, -1));
-
-        jLabel19.setText("Barrio");
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 29, -1, -1));
-
-        combobarrio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        combobarrio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        jPanel6.add(combobarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 52, -1, -1));
-
-        jLabel20.setText("Calle");
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 29, -1, -1));
-
-        combocalle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        combocalle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        jPanel6.add(combocalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 52, -1, -1));
-
-        jLabel22.setText("Torre");
-        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 104, -1, -1));
-
-        combotorre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        combotorre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        combotorre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combotorreActionPerformed(evt);
-            }
-        });
-        jPanel6.add(combotorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 127, -1, -1));
-
-        jLabel23.setText("Piso");
-        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 104, -1, -1));
-
-        combopiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        combopiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        jPanel6.add(combopiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 127, -1, -1));
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 420, 180));
+        jPanel1.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 150, 200));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -280,9 +238,6 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         comboplanes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         jPanel7.add(comboplanes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 53, -1, -1));
 
-        txthijos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel7.add(txthijos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 106, 95, -1));
-
         jLabel25.setText("HIjos");
         jPanel7.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 83, -1, -1));
 
@@ -294,7 +249,80 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jLabel26.setText("Trabajo");
         jPanel7.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 129, -1, -1));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 170, 150, 200));
+        txthijos1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel7.add(txthijos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 106, 95, -1));
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 150, 200));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Domicilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setText("Localidad");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 29, -1, -1));
+
+        combolocalidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combolocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        jPanel6.add(combolocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+
+        jLabel16.setText("Código postal");
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+
+        txtcodigopostal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel6.add(txtcodigopostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 95, -1));
+
+        jLabel19.setText("Barrio");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        combobarrio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combobarrio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        jPanel6.add(combobarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jLabel21.setText("Calle");
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+
+        combocalle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combocalle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        jPanel6.add(combocalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        jLabel20.setText("N° de casa");
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
+
+        txthijos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel6.add(txthijos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 80, -1));
+
+        jLabel22.setText("Torre");
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        combotorre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combotorre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        combotorre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combotorreActionPerformed(evt);
+            }
+        });
+        jPanel6.add(combotorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        jLabel23.setText("Piso");
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+
+        combopiso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combopiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        jPanel6.add(combopiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+
+        jLabel24.setText("N° de departamento");
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+
+        txthijos2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel6.add(txthijos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 80, -1));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 450, 200));
+
+        btnguardar1.setBackground(new java.awt.Color(38, 86, 186));
+        btnguardar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnguardar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardar1.setText("Guardar");
+        jPanel1.add(btnguardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 130, -1));
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -321,22 +349,18 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void combotorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotorreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combotorreActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
@@ -344,10 +368,24 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btncancelarActionPerformed
 
+    private void combotorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotorreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combotorreActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        Pago pago=new Pago();
+        Principal.panelPrincipal.add(pago);
+        pago.setVisible(true);
+    }//GEN-LAST:event_btnguardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnguardar1;
     private javax.swing.JButton btntomarfoto;
     private javax.swing.JButton btnverificar;
     private javax.swing.JComboBox<String> combobarrio;
@@ -374,8 +412,10 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
@@ -399,6 +439,8 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtcuil;
     private javax.swing.JTextField txtdni;
     private javax.swing.JTextField txthijos;
+    private javax.swing.JTextField txthijos1;
+    private javax.swing.JTextField txthijos2;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtnumerodocumento;
     private javax.swing.JTextField txttelefono;

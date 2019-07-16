@@ -19,6 +19,12 @@ public class Pago extends javax.swing.JInternalFrame {
      */
     public Pago() {
         initComponents();
+        
+        if(menu.AlumnoMenu.pagoAlumno==0){
+            btnAnterior.setVisible(true);
+        }else{
+            btnAnterior.setVisible(false);
+        }
     }
 
     /**
@@ -54,7 +60,7 @@ public class Pago extends javax.swing.JInternalFrame {
         txtnombre = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         btnguardar = new javax.swing.JButton();
-        btnanterior = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
@@ -179,16 +185,16 @@ public class Pago extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 352, 139, -1));
 
-        btnanterior.setBackground(new java.awt.Color(38, 86, 186));
-        btnanterior.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnanterior.setForeground(new java.awt.Color(255, 255, 255));
-        btnanterior.setText("Anterior");
-        btnanterior.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.setBackground(new java.awt.Color(38, 86, 186));
+        btnAnterior.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnanteriorActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnanterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 352, 137, -1));
+        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 352, 137, -1));
 
         btncancelar.setBackground(new java.awt.Color(38, 86, 186));
         btncancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -234,19 +240,32 @@ public class Pago extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combocursoActionPerformed
 
-    private void btnanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanteriorActionPerformed
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnanteriorActionPerformed
+        this.setVisible(false);
+        Inscripcion insc=new Inscripcion();
+        Principal.panelPrincipal.add(insc);
+        insc.setVisible(true);
+        
+    }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-        Principal.activarPanel();
-        dispose();
+        if(menu.AlumnoMenu.pagoAlumno==0){
+            this.setVisible(false);
+            Inscripcion insc=new Inscripcion();
+            Principal.panelPrincipal.add(insc);
+            insc.setVisible(true);
+        }else{
+            Principal.activarPanel();
+            dispose();
+        }
+        
     }//GEN-LAST:event_btncancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnanterior;
+    private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JComboBox<String> comboconcepto;
