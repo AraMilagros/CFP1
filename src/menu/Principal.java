@@ -604,7 +604,7 @@ public class Principal extends javax.swing.JFrame {
     }
     
     public static void crearBarrio(){
-        Barrio_crear barrio=new Barrio_crear();
+        Barrio_consulta barrio=new Barrio_consulta();
         panelPrincipal.add(barrio);
         barrio.setVisible(true);
         
