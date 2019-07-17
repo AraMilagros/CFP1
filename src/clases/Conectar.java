@@ -23,7 +23,7 @@ public class Conectar {
                 Class.forName("com.mysql.jdbc.Driver");
                 conexion = (Connection) DriverManager.getConnection(SERVIDOR, USUARIO, PASS);
                 if (conexion!=null) {
-                    //JOptionPane.showMessageDialog(null, "hola");
+                    //JOptionPane.showMessageDialog(null, "holaaaaaa");
                 }
    
             } catch(ClassNotFoundException | HeadlessException | SQLException ex) {
