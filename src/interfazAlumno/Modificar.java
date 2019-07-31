@@ -127,19 +127,19 @@ public class Modificar extends javax.swing.JInternalFrame {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, 89, -1));
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 130, -1));
 
         btnguardar.setBackground(new java.awt.Color(38, 86, 186));
         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(255, 255, 255));
         btnguardar.setText("Guardar");
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 89, -1));
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 130, -1));
 
         btntomarfoto.setBackground(new java.awt.Color(38, 86, 186));
         btntomarfoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btntomarfoto.setForeground(new java.awt.Color(255, 255, 255));
         btntomarfoto.setText("Tomar foto");
-        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, -1, -1));
+        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 130, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -173,7 +173,7 @@ public class Modificar extends javax.swing.JInternalFrame {
         masculino.setText("Masculino");
         jPanel3.add(masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 29, -1, -1));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 29, -1, 57));
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 29, 230, 57));
 
         combolugaranacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         combolugaranacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar" }));
@@ -211,7 +211,7 @@ public class Modificar extends javax.swing.JInternalFrame {
         jLabel8.setText("CUIL");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 104, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 750, 160));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 750, 170));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "contactos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N

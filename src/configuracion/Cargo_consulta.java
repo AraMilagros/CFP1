@@ -34,14 +34,14 @@ public class Cargo_consulta extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCargo = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
-        btnAgregarCargo = new javax.swing.JButton();
-        btnModificarCargo = new javax.swing.JButton();
-        btnEliminarCargo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaCargo = new javax.swing.JList<>();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,33 +53,6 @@ public class Cargo_consulta extends javax.swing.JInternalFrame {
 
         btnBuscar.setText("buscar");
         jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 91, -1, -1));
-
-        btnAtras.setText("Atras");
-        btnAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtrasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
-
-        btnAgregarCargo.setText("Agregar ");
-        btnAgregarCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarCargoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAgregarCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
-
-        btnModificarCargo.setText("Modificar");
-        btnModificarCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarCargoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
-
-        btnEliminarCargo.setText("Eliminar");
-        jPanel1.add(btnEliminarCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,7 +71,51 @@ public class Cargo_consulta extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(listaCargo);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 138, 370, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 138, 370, 160));
+
+        btnAgregar.setBackground(new java.awt.Color(38, 86, 186));
+        btnAgregar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 100, -1));
+
+        btnModificar.setBackground(new java.awt.Color(38, 86, 186));
+        btnModificar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 100, -1));
+
+        btnEliminar.setBackground(new java.awt.Color(38, 86, 186));
+        btnEliminar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 100, -1));
+
+        jButton1.setBackground(new java.awt.Color(38, 86, 186));
+        jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,37 +125,44 @@ public class Cargo_consulta extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCargoActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        Principal.consultaCargo();
-    }//GEN-LAST:event_btnAgregarCargoActionPerformed
+        Principal.crearBarrio();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+        Principal.modificarBarrio();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Principal.activarPanel();
         dispose();
-    }//GEN-LAST:event_btnAtrasActionPerformed
-
-    private void btnModificarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCargoActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        Principal.consultaCargo();
-    }//GEN-LAST:event_btnModificarCargoActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCargo;
-    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminarCargo;
-    private javax.swing.JButton btnModificarCargo;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

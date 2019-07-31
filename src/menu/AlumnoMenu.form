@@ -53,9 +53,6 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnInscribir">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Inscribir "/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[72, 29]"/>
@@ -73,9 +70,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnModificarDatos">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
@@ -84,9 +78,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBajaAlumno">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Dar de baja"/>
       </Properties>
       <Events>
@@ -95,9 +86,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnMotivoBaja">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Motivos de baja"/>
       </Properties>
       <Events>
@@ -106,9 +94,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPagos">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Efectuar pago"/>
       </Properties>
       <Events>
@@ -117,9 +102,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnConsultarEstado">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Consultar estado"/>
       </Properties>
       <Events>
@@ -128,9 +110,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnConsultarPagos">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="ee" red="ef" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Consultar pago"/>
       </Properties>
       <Events>

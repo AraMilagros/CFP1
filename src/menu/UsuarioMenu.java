@@ -81,7 +81,7 @@ public class UsuarioMenu extends javax.swing.JPanel {
         
         ModificarPass user= new ModificarPass();
         Principal.panelPrincipal.add(user);
-        user.setVisible(false);
+        user.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

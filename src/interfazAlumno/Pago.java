@@ -64,10 +64,6 @@ public class Pago extends javax.swing.JInternalFrame {
         btncancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -183,7 +179,7 @@ public class Pago extends javax.swing.JInternalFrame {
                 btnguardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 352, 139, -1));
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 139, -1));
 
         btnAnterior.setBackground(new java.awt.Color(38, 86, 186));
         btnAnterior.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -194,7 +190,7 @@ public class Pago extends javax.swing.JInternalFrame {
                 btnAnteriorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 352, 137, -1));
+        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 137, -1));
 
         btncancelar.setBackground(new java.awt.Color(38, 86, 186));
         btncancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -205,7 +201,7 @@ public class Pago extends javax.swing.JInternalFrame {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 352, 126, -1));
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 126, -1));
 
         jLabel6.setText("Apeliido y Nombre");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 48, -1, -1));

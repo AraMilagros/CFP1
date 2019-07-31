@@ -51,10 +51,6 @@ public class ConsultaPagos extends javax.swing.JInternalFrame {
         btnbaja = new javax.swing.JButton();
         btnanterior = new javax.swing.JButton();
 
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -170,7 +166,7 @@ public class ConsultaPagos extends javax.swing.JInternalFrame {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 146, -1));
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 146, -1));
 
         btnbaja.setBackground(new java.awt.Color(38, 86, 186));
         btnbaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -192,7 +188,7 @@ public class ConsultaPagos extends javax.swing.JInternalFrame {
                 btnanteriorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnanterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 141, -1));
+        jPanel1.add(btnanterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 141, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,7 +205,7 @@ public class ConsultaPagos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE))
         );
 
         pack();

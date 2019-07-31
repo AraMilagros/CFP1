@@ -48,7 +48,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(239, 238, 240));
 
-        btnInscribir.setBackground(new java.awt.Color(239, 238, 240));
         btnInscribir.setText("Inscribir ");
         btnInscribir.setMaximumSize(new java.awt.Dimension(72, 29));
         btnInscribir.setMinimumSize(new java.awt.Dimension(72, 29));
@@ -59,7 +58,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnModificarDatos.setBackground(new java.awt.Color(239, 238, 240));
         btnModificarDatos.setText("Modificar");
         btnModificarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +65,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnBajaAlumno.setBackground(new java.awt.Color(239, 238, 240));
         btnBajaAlumno.setText("Dar de baja");
         btnBajaAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +72,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnMotivoBaja.setBackground(new java.awt.Color(239, 238, 240));
         btnMotivoBaja.setText("Motivos de baja");
         btnMotivoBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +79,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnPagos.setBackground(new java.awt.Color(239, 238, 240));
         btnPagos.setText("Efectuar pago");
         btnPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +86,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnConsultarEstado.setBackground(new java.awt.Color(239, 238, 240));
         btnConsultarEstado.setText("Consultar estado");
         btnConsultarEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +93,6 @@ public class AlumnoMenu extends javax.swing.JPanel {
             }
         });
 
-        btnConsultarPagos.setBackground(new java.awt.Color(239, 238, 240));
         btnConsultarPagos.setText("Consultar pago");
         btnConsultarPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

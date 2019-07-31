@@ -92,16 +92,17 @@ public class Registro extends javax.swing.JInternalFrame {
         btnverificar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("FOTO");
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 24, 161, 161));
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 161, 161));
 
         btncancelar.setBackground(new java.awt.Color(38, 86, 186));
         btncancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -112,19 +113,19 @@ public class Registro extends javax.swing.JInternalFrame {
                 btncancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 130, -1));
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 130, -1));
 
         btnguardar.setBackground(new java.awt.Color(38, 86, 186));
         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(255, 255, 255));
         btnguardar.setText("Guardar");
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 130, -1));
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 130, -1));
 
         btntomarfoto.setBackground(new java.awt.Color(38, 86, 186));
         btntomarfoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btntomarfoto.setForeground(new java.awt.Color(255, 255, 255));
         btntomarfoto.setText("Tomar foto");
-        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 203, -1, -1));
+        jPanel1.add(btntomarfoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 130, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -158,7 +159,7 @@ public class Registro extends javax.swing.JInternalFrame {
         masculino.setText("Masculino");
         jPanel3.add(masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 29, -1, -1));
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 29, -1, 57));
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 29, 230, 60));
 
         combonacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         combonacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccionar" }));
@@ -196,7 +197,7 @@ public class Registro extends javax.swing.JInternalFrame {
         jLabel8.setText("CUIL");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 104, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 160));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 170));
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
         panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "contactos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -346,7 +347,7 @@ public class Registro extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
         );
 
         pack();
@@ -361,6 +362,10 @@ public class Registro extends javax.swing.JInternalFrame {
     private void combotorreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotorreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combotorreActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

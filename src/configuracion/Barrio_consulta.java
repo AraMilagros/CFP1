@@ -37,11 +37,11 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
-        btnEliminarBarrio = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnModificarBarrio = new javax.swing.JButton();
-        btnAgregarBarrio = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaBarrios = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
@@ -59,14 +59,16 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnEliminarBarrio.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnEliminarBarrio.setText("Eliminar");
-        btnEliminarBarrio.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(38, 86, 186));
+        btnEliminar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarBarrioActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,23 +81,27 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 579, -1));
 
-        btnModificarBarrio.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnModificarBarrio.setText("Modificar");
-        btnModificarBarrio.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setBackground(new java.awt.Color(38, 86, 186));
+        btnModificar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarBarrioActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 100, -1));
 
-        btnAgregarBarrio.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnAgregarBarrio.setText("Agregar");
-        btnAgregarBarrio.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(38, 86, 186));
+        btnAgregar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarBarrioActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 100, -1));
 
         listaBarrios.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -104,7 +110,7 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(listaBarrios);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 192, 370, -1));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 192, 370, 140));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel2.setText("Localidad");
@@ -117,14 +123,16 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         jLabel3.setText("Barrios");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 164, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(38, 86, 186));
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,31 +154,31 @@ public class Barrio_consulta extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnAgregarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarBarrioActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         Principal.crearBarrio();
-    }//GEN-LAST:event_btnAgregarBarrioActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnModificarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarBarrioActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         
        Principal.modificarBarrio();
-    }//GEN-LAST:event_btnModificarBarrioActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnEliminarBarrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarBarrioActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         
         
-    }//GEN-LAST:event_btnEliminarBarrioActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarBarrio;
-    private javax.swing.JButton btnEliminarBarrio;
-    private javax.swing.JButton btnModificarBarrio;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbLocalidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

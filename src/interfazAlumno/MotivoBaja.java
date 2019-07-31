@@ -43,10 +43,6 @@ public class MotivoBaja extends javax.swing.JInternalFrame {
         btndardebaja = new javax.swing.JButton();
         btnanterior = new javax.swing.JButton();
 
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -115,7 +111,7 @@ public class MotivoBaja extends javax.swing.JInternalFrame {
                 btnanteriorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnanterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 300, 137, -1));
+        jPanel1.add(btnanterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 137, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

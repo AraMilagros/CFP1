@@ -46,9 +46,11 @@ public class ConsultaEstado extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(38, 86, 186));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buscar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 95, 43));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 100, 43));
 
         jLabel5.setText("Motivos:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
@@ -57,9 +59,11 @@ public class ConsultaEstado extends javax.swing.JInternalFrame {
         jLabel6.setText("Estado por:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
+        btnLicencia.setBackground(new java.awt.Color(38, 86, 186));
         btnLicencia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnLicencia.setForeground(new java.awt.Color(255, 255, 255));
         btnLicencia.setText("Licencia");
-        jPanel1.add(btnLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, 123, -1));
+        jPanel1.add(btnLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 130, -1));
 
         txtTablaConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,14 +81,16 @@ public class ConsultaEstado extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 842, 135));
         jPanel1.add(txtDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 589, 83));
 
+        btnSalir.setBackground(new java.awt.Color(38, 86, 186));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 135, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 100, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Ingrese Datos Del Profesor a Buscar");

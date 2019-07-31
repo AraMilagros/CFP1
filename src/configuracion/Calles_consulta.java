@@ -41,11 +41,11 @@ public class Calles_consulta extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaCalle = new javax.swing.JList<>();
-        btnAgregarCalle = new javax.swing.JButton();
-        btnModificarCalle = new javax.swing.JButton();
-        btnEliminarCalle = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -88,43 +88,55 @@ public class Calles_consulta extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(listaCalle);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 402, 231));
-
-        btnAgregarCalle.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnAgregarCalle.setText("Agregar");
-        btnAgregarCalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarCalleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAgregarCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 213, -1, -1));
-
-        btnModificarCalle.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnModificarCalle.setText("Modificar");
-        btnModificarCalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarCalleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 286, -1, -1));
-
-        btnEliminarCalle.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        btnEliminarCalle.setText("Eliminar");
-        jPanel1.add(btnEliminarCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 364, -1, -1));
-
-        btnAtras.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/configuracion/imag/back.png"))); // NOI18N
-        btnAtras.setText("Atras");
-        btnAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtrasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 402, 160));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel4.setText("Calles");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        btnAgregar.setBackground(new java.awt.Color(38, 86, 186));
+        btnAgregar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
+
+        btnModificar.setBackground(new java.awt.Color(38, 86, 186));
+        btnModificar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 100, -1));
+
+        btnEliminar.setBackground(new java.awt.Color(38, 86, 186));
+        btnEliminar.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 100, -1));
+
+        jButton1.setBackground(new java.awt.Color(38, 86, 186));
+        jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,38 +146,45 @@ public class Calles_consulta extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Principal.crearBarrio();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+        Principal.modificarBarrio();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Principal.activarPanel();
         dispose();
-    }//GEN-LAST:event_btnAtrasActionPerformed
-
-    private void btnAgregarCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCalleActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        Principal.crearCalle();
-    }//GEN-LAST:event_btnAgregarCalleActionPerformed
-
-    private void btnModificarCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCalleActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(true);
-        Principal.modificarCalle();
-    }//GEN-LAST:event_btnModificarCalleActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCalle;
-    private javax.swing.JButton btnAtras;
-    private javax.swing.JButton btnEliminarCalle;
-    private javax.swing.JButton btnModificarCalle;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbBarrio;
     private javax.swing.JComboBox<String> cbLocalidad;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

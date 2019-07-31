@@ -77,11 +77,11 @@ public class AsignarCurso extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Profesor");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 106, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Curso");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 305, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
         cboxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         cboxCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -89,35 +89,39 @@ public class AsignarCurso extends javax.swing.JInternalFrame {
                 cboxCursoActionPerformed(evt);
             }
         });
-        jPanel1.add(cboxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 339, 256, -1));
+        jPanel1.add(cboxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 256, -1));
 
-        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCancelar.setBackground(new java.awt.Color(38, 86, 186));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 100, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Cargo");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 209, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        btnAsignar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAsignar.setBackground(new java.awt.Color(38, 86, 186));
+        btnAsignar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAsignar.setForeground(new java.awt.Color(255, 255, 255));
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAsignarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, -1, -1));
+        jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 100, -1));
 
         cboxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Cargo del Profesor:", " " }));
-        jPanel1.add(cboxCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 243, -1, -1));
+        jPanel1.add(cboxCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         cboxProfesor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Profesor:", " " }));
-        jPanel1.add(cboxProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 140, 256, -1));
+        jPanel1.add(cboxProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 256, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Cursos");
@@ -136,7 +140,7 @@ public class AsignarCurso extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(txtTablaAsignarCurso);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 140, 371, 228));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 371, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,9 +150,7 @@ public class AsignarCurso extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
         );
 
         pack();

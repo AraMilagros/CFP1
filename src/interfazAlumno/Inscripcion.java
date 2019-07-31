@@ -92,10 +92,6 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         btnverificar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
