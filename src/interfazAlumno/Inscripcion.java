@@ -22,7 +22,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     
     public Inscripcion() {
         initComponents();
-        
+        Deshabilitarcombobox();
     }
 
     //Cargar de combo box
@@ -92,8 +92,11 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     }
     
     //Habilitar Combobox's
-    void botones(){
-        
+    void Deshabilitarcombobox(){
+        cbxBarrio.setEnabled(false);
+        cbxCalle.setEnabled(false);
+        cbxPiso.setEnabled(false);
+        cbxTorre.setEnabled(false);
     }
     
     
