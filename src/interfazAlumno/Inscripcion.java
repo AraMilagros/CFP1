@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Falta la validacion de las cargar de los combo box. En caso de que no se encuentre algun lugar y necesite cargar, verificar si
+ya está cargado pero si está eliminado y darle la opcion de volverlo a cargar
+*/
+
 package interfazAlumno;
 
 import java.sql.Connection;
@@ -11,17 +11,17 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import menu.Principal;
 
-/**
- *
- * @author Nero
- */
+
 public class Inscripcion extends javax.swing.JInternalFrame {
 
     Statement st;
     ResultSet rs;
+    int idLocalidad,idBarrio;
     
     public Inscripcion() {
         initComponents();
+        txtCodigoPostal.setEnabled(false);
+        cargarComboLocalidad();
         Deshabilitarcombobox();
     }
 
@@ -91,6 +91,50 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         }
     }
     
+    public void cargarCodigoPostal(int idLocalidad){
+        try {
+            Connection con = clases.Conectar.conexion();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT codigoPostal FROM codigoPostal WHERE localidad = "+idLocalidad);
+            
+        }catch(Exception e){
+            
+        }
+    }
+    
+    public void cargarComboBarrio(int idLocalidad){
+        try {
+            Connection con = clases.Conectar.conexion();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT nombre FROM lugar WHERE nivel = 2 AND de = "+idLocalidad);
+            
+            while (rs.next()) {                
+                cbxNacimiento.addItem(rs.getString("nombre"));
+            }
+            cbxBarrio.setEnabled(true);
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }
+    
+    public void cargarComboCalle(int idBarrio){
+        try {
+            Connection con = clases.Conectar.conexion();
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT nombre FROM lugar WHERE nivel = 2 AND de = "+idBarrio);
+            
+            while (rs.next()) {                
+                cbxNacimiento.addItem(rs.getString("nombre"));
+            }
+            cbxCalle.setEnabled(true);
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
+    }
     //Habilitar Combobox's
     void Deshabilitarcombobox(){
         cbxBarrio.setEnabled(false);
@@ -152,7 +196,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         cbxLocalidad = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        txtcodigopostal = new javax.swing.JTextField();
+        txtCodigoPostal = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         cbxBarrio = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
@@ -339,19 +383,29 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         cbxLocalidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        cbxLocalidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbxLocalidadMouseClicked(evt);
+            }
+        });
         jPanel6.add(cbxLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         jLabel16.setText("Código postal");
         jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
-        txtcodigopostal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel6.add(txtcodigopostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 95, -1));
+        txtCodigoPostal.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel6.add(txtCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 95, -1));
 
         jLabel19.setText("Barrio");
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         cbxBarrio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxBarrio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        cbxBarrio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbxBarrioMouseClicked(evt);
+            }
+        });
         jPanel6.add(cbxBarrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jLabel21.setText("Calle");
@@ -457,6 +511,25 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         pago.setVisible(true);
     }//GEN-LAST:event_btnguardarActionPerformed
 
+    private void cbxLocalidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxLocalidadMouseClicked
+        if (cbxLocalidad.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(null, "No seleccionó ninguna de las localidades");
+        }else{
+            idLocalidad=cbxLocalidad.getSelectedIndex();
+            cargarComboBarrio(idLocalidad);
+            cargarCodigoPostal(idLocalidad);
+        }
+    }//GEN-LAST:event_cbxLocalidadMouseClicked
+
+    private void cbxBarrioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxBarrioMouseClicked
+        if(cbxBarrio.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(null, "No seleccionó ninguno de los barrios");
+        }else{
+            idBarrio=cbxBarrio.getSelectedIndex();
+            cargarComboCalle(idBarrio);
+        }
+    }//GEN-LAST:event_cbxBarrioMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
@@ -509,8 +582,8 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JRadioButton masculino;
     private javax.swing.JPanel panel;
+    private javax.swing.JTextField txtCodigoPostal;
     private javax.swing.JTextField txtapellido;
-    private javax.swing.JTextField txtcodigopostal;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtcuil;
     private javax.swing.JTextField txtdni;
