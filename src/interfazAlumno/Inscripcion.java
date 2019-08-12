@@ -11,7 +11,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import menu.Principal;
 
-
+//hola
 public class Inscripcion extends javax.swing.JInternalFrame {
 
     Statement st;
