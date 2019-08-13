@@ -17,13 +17,13 @@ public class Conectar {
     
       
       
-    public static Connection conexion(){ 
+    public static Connection conexion(){
     
         try {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 conexion = (Connection) DriverManager.getConnection(SERVIDOR, USUARIO, PASS);
                 if (conexion!=null) {
-                    //JOptionPane.showMessageDialog(null, "hola");
+                    //JOptionPane.showMessageDialog(null, "hola :v");
                 }
    
             } catch(ClassNotFoundException | HeadlessException | SQLException ex) {
