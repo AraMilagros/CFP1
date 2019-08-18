@@ -31,11 +31,11 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         pantalla=panelPrincipal.getSize();
         
-        desactivarPanel();
+        /*desactivarPanel();
         Login log=new Login();
         panelPrincipal.add(log);
         log.setVisible(true);
-        
+        */
         menuAlumno=0;
     }
     

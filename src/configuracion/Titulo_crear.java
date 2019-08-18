@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */package configuracion;
 
+import static clases.Conectar.conexion;
+import clases.Titulo;
+import clases.Trabajo;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 import menu.Principal;
 
 
@@ -13,13 +22,20 @@ import menu.Principal;
  */
 public class Titulo_crear extends javax.swing.JInternalFrame {
 
+    PreparedStatement ps=null;
+    ResultSet rs=null;
+    
+      //Connection conexion = clases.Conectar.conexion();
+      Titulo titulo = new Titulo();
     /**
      * Creates new form creartitulo
      */
     public Titulo_crear() {
         initComponents();
+       titulo.Llenartabla(conexion, tablaTitulo);
     }
 
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,13 +104,13 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
 
         tablaTitulo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id Titulo", "Detalle"
             }
         ));
         jScrollPane2.setViewportView(tablaTitulo);
@@ -160,7 +176,12 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
+            Connection con = null;
+            con = clases.Conectar.conexion();
+        
+            clases.Titulo.CrearTitulo(con, txtTitulo.getText());
+            titulo.Llenartabla(conexion, tablaTitulo);
+            limpiar();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -168,7 +189,9 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
         Principal.activarPanel();
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
+public void limpiar(){
+               txtTitulo.setText(""); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
@@ -182,4 +205,5 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaTitulo;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -5,6 +5,12 @@
  */
 package configuracion;
 
+import static clases.Conectar.conexion;
+import ClasesConfiguracion.Plan;
+import clases.Trabajo;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import menu.Principal;
 
 
@@ -13,12 +19,17 @@ import menu.Principal;
  * @author RociojulietaVazquez
  */
 public class Plan_crear extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form CrearPlanes
-     */
+    
+    PreparedStatement ps=null;
+    ResultSet rs=null;
+    
+      Connection conexion = clases.Conectar.conexion();
+      Plan plan = new Plan();
+  
+    
     public Plan_crear() {
         initComponents();
+        plan.Llenartabla(conexion, tablaPlan);
     }
 
     /**
@@ -38,7 +49,7 @@ public class Plan_crear extends javax.swing.JInternalFrame {
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listaPlan = new javax.swing.JTable();
+        tablaPlan = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,18 +98,18 @@ public class Plan_crear extends javax.swing.JInternalFrame {
             }
         });
 
-        listaPlan.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPlan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id Plan", "Detalle"
             }
         ));
-        jScrollPane2.setViewportView(listaPlan);
+        jScrollPane2.setViewportView(tablaPlan);
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel4.setText("Planes");
@@ -161,7 +172,12 @@ public class Plan_crear extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
+            Connection con = null;
+            con = clases.Conectar.conexion();
+        
+            ClasesConfiguracion.Plan.CrearPlan(con, txtPlan.getText());
+            plan.Llenartabla(conexion, tablaPlan);
+            limpiar();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -170,6 +186,9 @@ public class Plan_crear extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+     public void limpiar(){
+               txtPlan.setText(""); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
@@ -180,7 +199,7 @@ public class Plan_crear extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable listaPlan;
+    private javax.swing.JTable tablaPlan;
     private javax.swing.JTextField txtPlan;
     // End of variables declaration//GEN-END:variables
 }

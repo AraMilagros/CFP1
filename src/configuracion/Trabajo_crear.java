@@ -5,6 +5,17 @@
  */
 package configuracion;
 
+import static clases.Conectar.conexion;
+import clases.Trabajo;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import menu.Principal;
 
 
@@ -13,12 +24,17 @@ import menu.Principal;
  * @author RociojulietaVazquez
  */
 public class Trabajo_crear extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form CrearTrabajo
-     */
+    
+    PreparedStatement ps=null;
+    ResultSet rs=null;
+    
+      //Connection conexion = clases.Conectar.conexion();
+      Trabajo trabajo = new Trabajo();
+  
     public Trabajo_crear() {
         initComponents();
+        trabajo.Llenartabla(conexion, tablaTrabajo);
+        
     }
 
     /**
@@ -89,13 +105,12 @@ public class Trabajo_crear extends javax.swing.JInternalFrame {
 
         tablaTrabajo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id Trabajo", "Detalle"
             }
         ));
         jScrollPane2.setViewportView(tablaTrabajo);
@@ -160,7 +175,14 @@ public class Trabajo_crear extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
+        
+            Connection con = null;
+            con = clases.Conectar.conexion();
+        
+            clases.Trabajo.CrearTrabajo(con, txtTrabajo.getText());
+            trabajo.Llenartabla(conexion, tablaTrabajo);
+            limpiar();
+            
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -169,7 +191,9 @@ public class Trabajo_crear extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-
+    public void limpiar(){
+               txtTrabajo.setText(""); 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
