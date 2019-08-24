@@ -5,6 +5,11 @@
  */
 package configuracion;
 
+import static clases.Conectar.conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import menu.Principal;
 
 
@@ -14,6 +19,8 @@ import menu.Principal;
  */
 public class Titulo_consulta extends javax.swing.JInternalFrame {
 
+    PreparedStatement ps;
+    ResultSet rs;
     /**
      * Creates new form titulo
      */
@@ -49,6 +56,11 @@ public class Titulo_consulta extends javax.swing.JInternalFrame {
         jLabel2.setText("Titulo:");
 
         btnBuscar.setText("buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,6 +222,11 @@ public class Titulo_consulta extends javax.swing.JInternalFrame {
         Principal.activarPanel();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+         
+                            
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

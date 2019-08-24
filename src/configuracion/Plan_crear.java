@@ -106,7 +106,7 @@ public class Plan_crear extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Id Plan", "Detalle"
+                "Id Planes", "Detalle"
             }
         ));
         jScrollPane2.setViewportView(tablaPlan);

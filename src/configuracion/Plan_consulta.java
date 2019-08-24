@@ -5,6 +5,9 @@
  */
 package configuracion;
 
+import ClasesConfiguracion.Plan;
+import static clases.Conectar.conexion;
+import java.sql.Connection;
 import menu.Principal;
 
 
@@ -13,12 +16,14 @@ import menu.Principal;
  * @author RociojulietaVazquez
  */
 public class Plan_consulta extends javax.swing.JInternalFrame {
-
+     Connection conexion = clases.Conectar.conexion();
+     Plan plan = new Plan();
     /**
      * Creates new form Planes
      */
     public Plan_consulta() {
         initComponents();
+        plan.LlenarLista(conexion, listaPlan);
     }
 
     /**
@@ -71,11 +76,6 @@ public class Plan_consulta extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel2.setText("Planes:");
 
-        listaPlan.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listaPlan);
 
         btnBuscar.setText("Buscar");
@@ -160,7 +160,7 @@ public class Plan_consulta extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 4, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
                         .addGap(31, 31, 31)
                         .addComponent(btnModificar)
@@ -193,10 +193,8 @@ public class Plan_consulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-
-        Principal.modificarBarrio();
+        
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

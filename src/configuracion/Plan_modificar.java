@@ -5,6 +5,11 @@
  */
 package configuracion;
 
+import ClasesConfiguracion.Plan;
+import static clases.Conectar.conexion;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import menu.Principal;
 
 
@@ -13,12 +18,12 @@ import menu.Principal;
  * @author RociojulietaVazquez
  */
 public class Plan_modificar extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form ModificarPlanes
-     */
+       Connection conexion = clases.Conectar.conexion();
+       Plan plan = new Plan();
+       
     public Plan_modificar() {
         initComponents();
+        plan.llenarCombo(conexion,cbPlanActual);
     }
 
     /**
@@ -89,8 +94,6 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
             }
         });
 
-        cbPlanActual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,14 +142,17 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
+       
+ 
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
