@@ -10,6 +10,7 @@ import static clases.Conectar.conexion;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import menu.Principal;
 
 
@@ -23,7 +24,7 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
        
     public Plan_modificar() {
         initComponents();
-        plan.llenarCombo(conexion,cbPlanActual);
+        plan.LlenarCombo(conexion,cbPlanActual);
     }
 
     /**
@@ -74,7 +75,13 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
         jLabel3.setText("Planes actuales:");
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel4.setText("Cambiar planes:");
+        jLabel4.setText("Nuevo nombre plan:");
+
+        txtPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlanActionPerformed(evt);
+            }
+        });
 
         btnAceptar.setBackground(new java.awt.Color(38, 86, 186));
         btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +138,7 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,9 +149,7 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -152,7 +157,22 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
        
- 
+        
+       try {
+           int vacio = cbPlanActual.getSelectedIndex();
+           if (vacio == 0) { 
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un Plan");
+        } else if (txtPlan.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "No se puede modificar. El campo está vacio");
+        }else{
+            ClasesConfiguracion.Plan.ModificarPlan(conexion, txtPlan.getText(), cbPlanActual.getItemAt(cbPlanActual.getSelectedIndex()).getIdPlan());
+            txtPlan.setText(null);
+            cbPlanActual.setSelectedIndex(0);
+           }
+        } catch (Exception ex) {
+            Logger.getLogger(Plan.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+           plan.ActualizarCombo(conexion, cbPlanActual);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -161,11 +181,15 @@ public class Plan_modificar extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void txtPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlanActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> cbPlanActual;
+    private javax.swing.JComboBox<Plan> cbPlanActual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

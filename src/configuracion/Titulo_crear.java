@@ -5,13 +5,13 @@
  */package configuracion;
 
 import static clases.Conectar.conexion;
-import clases.Titulo;
-import clases.Trabajo;
+import ClasesConfiguracion.Titulo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import menu.Principal;
 
@@ -25,7 +25,7 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
     PreparedStatement ps=null;
     ResultSet rs=null;
     
-      //Connection conexion = clases.Conectar.conexion();
+      Connection conexion = clases.Conectar.conexion();
       Titulo titulo = new Titulo();
     /**
      * Creates new form creartitulo
@@ -176,12 +176,16 @@ public class Titulo_crear extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-            Connection con = null;
-            con = clases.Conectar.conexion();
-        
-            clases.Titulo.CrearTitulo(con, txtTitulo.getText());
+        Connection con = null;
+        con = clases.Conectar.conexion();
+        if (txtTitulo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el título");
+            return;
+        } else {
+            ClasesConfiguracion.Titulo.CrearTitulo(con, txtTitulo.getText());
             titulo.Llenartabla(conexion, tablaTitulo);
             limpiar();
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

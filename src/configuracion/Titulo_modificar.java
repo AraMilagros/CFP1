@@ -5,8 +5,12 @@
  */
 package configuracion;
 
+import ClasesConfiguracion.Titulo;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import menu.Principal;
-
 
 /**
  *
@@ -14,11 +18,14 @@ import menu.Principal;
  */
 public class Titulo_modificar extends javax.swing.JInternalFrame {
 
+       Connection conexion = clases.Conectar.conexion();
+       Titulo titulo = new Titulo();
     /**
      * Creates new form modificartitulo
      */
     public Titulo_modificar() {
         initComponents();
+        titulo.LlenarCombo(conexion,cbTituloActual);
     }
 
     /**
@@ -38,7 +45,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
         txtTitulo = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        cbTItuloActual = new javax.swing.JComboBox<>();
+        cbTituloActual = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -46,7 +53,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MODIFICAR TITULO");
+        jLabel1.setText("MODIFICAR TÍTULO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -66,10 +73,10 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel3.setText("Titulo actual:");
+        jLabel3.setText("Título actual:");
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel4.setText("Cambiar titulo:");
+        jLabel4.setText("Nuevo nombre título:");
 
         btnAceptar.setBackground(new java.awt.Color(38, 86, 186));
         btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,8 +96,6 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
             }
         });
 
-        cbTItuloActual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,7 +111,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbTItuloActual, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbTituloActual, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
@@ -119,7 +124,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbTItuloActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbTituloActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -128,7 +133,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,18 +144,33 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        // TODO add your handling code here:
+       
+        try {
+            int vacio = cbTituloActual.getSelectedIndex();
+            if (vacio == 0) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un Título");
+        } else if (txtTitulo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "No se puede modificar. El campo está vacio");
+        }else{
+            ClasesConfiguracion.Titulo.ModificarTitulo(conexion, txtTitulo.getText(), cbTituloActual.getItemAt(cbTituloActual.getSelectedIndex()).getIdTitulo());
+            txtTitulo.setText(null);
+            cbTituloActual.setSelectedIndex(0);
+           }
+        } catch (Exception ex) {
+            Logger.getLogger(Titulo.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+           titulo.ActualizarCombo(conexion, cbTituloActual);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+
         Principal.activarPanel();
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -159,7 +179,7 @@ public class Titulo_modificar extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> cbTItuloActual;
+    private javax.swing.JComboBox<Titulo> cbTituloActual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

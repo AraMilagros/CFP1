@@ -8,7 +8,6 @@ package menu;
 import configuracion.*;
 import usuario.*;
 import java.awt.Dimension;
-
 import clases.CambiaPanel;
 /**
  *
@@ -46,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         escritorio = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -86,10 +86,12 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem26 = new javax.swing.JMenuItem();
         jMenuItem27 = new javax.swing.JMenuItem();
         jMenuItem28 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem29 = new javax.swing.JMenuItem();
         jMenuItem30 = new javax.swing.JMenuItem();
         jMenuItem31 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem32 = new javax.swing.JMenuItem();
         jMenuItem33 = new javax.swing.JMenuItem();
@@ -102,6 +104,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem38 = new javax.swing.JMenuItem();
         jMenuItem39 = new javax.swing.JMenuItem();
         jMenuItem40 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -110,6 +113,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem9.setText("jMenuItem9");
 
         jMenuItem13.setText("jMenuItem13");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -433,6 +438,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem28);
 
+        jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem2);
+
         jMenu1.add(jMenu7);
 
         jMenu8.setText("Plan");
@@ -460,6 +473,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu8.add(jMenuItem31);
+
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem1);
 
         jMenu1.add(jMenu8);
 
@@ -544,6 +565,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu11.add(jMenuItem40);
+
+        jMenuItem4.setText("Eliminar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem4);
 
         jMenu1.add(jMenu11);
 
@@ -770,9 +799,16 @@ public class Principal extends javax.swing.JFrame {
         Plan_consulta plan=new Plan_consulta();
         
         panelPrincipal.add(plan);
-        plan.setVisible(true);
-        
+        plan.setVisible(true);   
     }
+    
+     public static void eliminarPlan(){
+        Plan_eliminar plan=new Plan_eliminar();
+        
+        panelPrincipal.add(plan);
+        plan.setVisible(true);   
+    }
+    
     
     public static void crearTitulo(){
         Titulo_crear titulo=new Titulo_crear();
@@ -789,18 +825,21 @@ public class Principal extends javax.swing.JFrame {
         
     }
     public static void consultaTitulo(){
-        Titulo_consulta titulo=new Titulo_consulta();
-        
+        Titulo_consulta titulo=new Titulo_consulta();   
         panelPrincipal.add(titulo);
-        titulo.setVisible(true);
-        
+        titulo.setVisible(true);       
     }
     
+    public static void eliminarTitulo(){
+        Titulo_Eliminar titulo=new Titulo_Eliminar();   
+        panelPrincipal.add(titulo);
+        titulo.setVisible(true);       
+    }
+      
     public static void crearTrabajo(){
         Trabajo_crear trabajo=new Trabajo_crear();
         panelPrincipal.add(trabajo);
-        trabajo.setVisible(true);
-        
+        trabajo.setVisible(true);    
     }
     public static void modificarTrabajo(){
         Trabajo_modificar trabajo=new Trabajo_modificar();
@@ -810,6 +849,12 @@ public class Principal extends javax.swing.JFrame {
     }
     public static void consultaTrabajo(){
         Trabajo_consulta trabajo=new Trabajo_consulta();
+        panelPrincipal.add(trabajo);
+        trabajo.setVisible(true);
+    }
+    
+     public static void eliminarTrabajo(){
+        Trabajo_eliminar trabajo=new Trabajo_eliminar();
         panelPrincipal.add(trabajo);
         trabajo.setVisible(true);
     }
@@ -1068,6 +1113,21 @@ public class Principal extends javax.swing.JFrame {
         new CambiaPanel(panelSubMenu, new EmpleadoMenu());
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+          desactivarPanel();
+          eliminarPlan();        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+          desactivarPanel();
+          eliminarTitulo();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+           desactivarPanel();
+           eliminarTrabajo(); 
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1132,10 +1192,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem22;
@@ -1146,6 +1208,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem27;
     private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem29;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem30;
     private javax.swing.JMenuItem jMenuItem31;
     private javax.swing.JMenuItem jMenuItem32;
@@ -1156,6 +1219,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem37;
     private javax.swing.JMenuItem jMenuItem38;
     private javax.swing.JMenuItem jMenuItem39;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem40;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem8;

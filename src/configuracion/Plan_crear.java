@@ -7,10 +7,10 @@ package configuracion;
 
 import static clases.Conectar.conexion;
 import ClasesConfiguracion.Plan;
-import clases.Trabajo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import menu.Principal;
 
 
@@ -31,7 +31,8 @@ public class Plan_crear extends javax.swing.JInternalFrame {
         initComponents();
         plan.Llenartabla(conexion, tablaPlan);
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,10 +101,7 @@ public class Plan_crear extends javax.swing.JInternalFrame {
 
         tablaPlan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Id Planes", "Detalle"
@@ -174,14 +172,18 @@ public class Plan_crear extends javax.swing.JInternalFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
             Connection con = null;
             con = clases.Conectar.conexion();
-        
+         if (txtPlan.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el plan");
+            return;
+        } else {
             ClasesConfiguracion.Plan.CrearPlan(con, txtPlan.getText());
             plan.Llenartabla(conexion, tablaPlan);
             limpiar();
+         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        
         Principal.activarPanel();
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed

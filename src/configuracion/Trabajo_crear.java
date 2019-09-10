@@ -6,7 +6,7 @@
 package configuracion;
 
 import static clases.Conectar.conexion;
-import clases.Trabajo;
+import ClasesConfiguracion.Trabajo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +14,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import menu.Principal;
@@ -28,7 +29,7 @@ public class Trabajo_crear extends javax.swing.JInternalFrame {
     PreparedStatement ps=null;
     ResultSet rs=null;
     
-      //Connection conexion = clases.Conectar.conexion();
+      Connection conexion = clases.Conectar.conexion();
       Trabajo trabajo = new Trabajo();
   
     public Trabajo_crear() {
@@ -178,11 +179,14 @@ public class Trabajo_crear extends javax.swing.JInternalFrame {
         
             Connection con = null;
             con = clases.Conectar.conexion();
-        
-            clases.Trabajo.CrearTrabajo(con, txtTrabajo.getText());
+        if (txtTrabajo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el trabajo");
+            return;
+        } else {
+            ClasesConfiguracion.Trabajo.CrearTrabajo(con, txtTrabajo.getText());
             trabajo.Llenartabla(conexion, tablaTrabajo);
             limpiar();
-            
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
